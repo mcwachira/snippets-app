@@ -8,6 +8,7 @@ interface SnippetDetailsPageProps {
 export default async function SnippetDetailsPage({
   params,
 }: SnippetDetailsPageProps) {
+  // await new Promise((r) => setTimeout(r, 5000));
   const snippet = await db.snippet.findFirst({
     where: { id: parseInt(params.id) },
   });
