@@ -14,7 +14,7 @@ export default function CreateSnippetPage() {
       <div className="flex flex-col gap-4">
         <div className="flex gap-4">
           <label htmlFor="title" className="w-12">
-            Title
+            npm dev Title
           </label>
 
           <input

@@ -1,5 +1,6 @@
 "use server";
 import { db } from "@/db";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function createSnippet(
@@ -40,7 +41,7 @@ export async function createSnippet(
       };
     }
   }
-
+  revalidatePath("/");
   // Redirect the user back to the root route
   redirect("/");
 }
@@ -55,6 +56,7 @@ export async function UpdateSnippet(id: number, code: string) {
     },
   });
 
+  revalidatePath(`/snippets/${id}`);
   redirect(`/snippets/${id}`);
 }
 
@@ -65,5 +67,6 @@ export async function deleteSnippet(id: number) {
     },
   });
 
+  revalidatePath("/");
   redirect(`/`);
 }
